@@ -15,18 +15,15 @@ const reducer = (state = { msg : "" }, action) => {
 const timeReducer = (state = [], action) => {
     switch(action.type){
         case ADD_TIME:
-            state = [ ...state, action.item ];
+            return [ ...state, action.item ];
 
-            return state;
         case REMOVE_TIME:
 
             const index = state.findIndex((e) => e === action.item);
 
             if(index === -1) return state;
 
-            state = [ ...state.slice(0, index), ...state.slice(index + 1, state.length) ];
-
-            return state;
+            return [ ...state.slice(0, index), ...state.slice(index + 1, state.length) ];
 
     
         default:
